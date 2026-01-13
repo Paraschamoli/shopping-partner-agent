@@ -1,0 +1,52 @@
+site_name: shopping-partner-agent
+repo_url: https://github.com/Paraschamoli/shopping-partner-agent
+site_url: https://Paraschamoli.github.io/shopping-partner-agent
+site_description: Shopping Partner Agent is an AI-powered personal shopping assistant that helps users discover, compare, and choose products based on preferences, budget, and needs. It analyzes reviews, features, pricing, and alternatives to provide smart recommendations—making shopping faster, more informed, and hassle-free.
+site_author: Paras Chamoli
+edit_uri: edit/main/docs/
+repo_name: Paraschamoli/shopping-partner-agent
+copyright: Maintained by <a href="https://Paraschamoli.com">Paraschamoli</a>.
+
+nav:
+  - Home: index.md
+  - Modules: modules.md
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["src/shopping_partner_agent"]
+theme:
+  name: material
+  feature:
+    tabs: true
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Paraschamoli/shopping-partner-agent
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/shopping-partner-agent
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true

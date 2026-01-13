@@ -1,0 +1,388 @@
+# Shopping Partner and Product Recommendation Skill
+# AI-powered personal shopping assistant for product discovery and recommendations
+
+# Basic Metadata
+id: shopping-partner-v1
+name: shopping-partner
+version: 1.0.0
+author: paras25619@gmail.com
+
+# Description
+description: |
+  An AI-powered personal shopping assistant that helps users discover, compare, and choose products
+  based on preferences, budget, and needs. This skill analyzes reviews, features, pricing, and
+  alternatives to provide smart recommendations from trusted e-commerce platforms. It ensures
+  product authenticity, availability verification, and minimum 50% match guarantee for user requirements.
+
+# Tags and Modes
+tags:
+  - shopping-assistant
+  - product-recommendation
+  - e-commerce
+  - personal-shopper
+  - product-discovery
+  - price-comparison
+  - trusted-shopping
+  - availability-check
+  - consumer-advice
+
+input_modes:
+  - text/plain
+  - application/json
+
+output_modes:
+  - text/plain
+  - application/json
+  - text/markdown
+
+# Example Queries
+examples:
+  - "I'm looking for running shoes: Color: Black, Purpose: Long-distance running, Budget: Under Rs. 10,000"
+  - "Find a laptop for programming: Budget: $1000-1500, RAM: 16GB minimum, SSD: 512GB, Brand preference: Dell or Lenovo"
+  - "Recommend a smartphone with good camera: Budget: $500-800, Battery life important, 5G required"
+  - "Looking for a coffee machine: Type: Espresso, Budget: $200-400, Countertop space limited"
+  - "Find gifts for a 10-year-old: Interests: Robotics and coding, Budget: $50-100 per gift"
+
+# Detailed Capabilities
+capabilities_detail:
+  product_discovery:
+    supported: true
+    search_platforms:
+      - amazon
+      - flipkart
+      - myntra
+      - meesho
+      - google_shopping
+      - nike
+      - other_verified_platforms
+    verification_levels:
+      - authenticity_check
+      - availability_verification
+      - source_trust_validation
+    match_guarantee: "minimum_50_percent"
+
+  recommendation_engine:
+    supported: true
+    criteria_analysis:
+      - budget_constraints
+      - feature_preferences
+      - brand_preferences
+      - user_requirements
+      - style_preferences
+    ranking_factors:
+      - match_percentage
+      - price_value
+      - user_reviews
+      - availability
+      - delivery_options
+
+  trust_safety:
+    supported: true
+    safety_measures:
+      - counterfeit_detection
+      - source_verification
+      - secure_link_providing
+      - safety_disclaimers
+      - user_privacy_protection
+    excluded_sources:
+      - unverified_websites
+      - counterfeit_products
+      - suspicious_listings
+      - unsafe_payment_gateways
+
+  comparison_analysis:
+    supported: true
+    comparison_types:
+      - price_comparison
+      - feature_comparison
+      - brand_comparison
+      - review_analysis
+      - value_assessment
+    presentation_formats:
+      - side_by_side
+      - pros_cons
+      - match_scorecards
+      - summary_tables
+
+# Requirements
+requirements:
+  packages:
+    - agno>=2.2.0
+    - bindu>=2026.1.12
+    - exa-py>=1.1.0
+    - duckduckgo-search>=7.1.0
+    - openai>=1.60.0
+    - python-dotenv>=1.0.1
+    - mem0ai>=1.0.1
+  system: []
+  min_memory_mb: 512
+  external_services:
+    - Exa Search API (preferred)
+    - DuckDuckGo Search API (fallback)
+    - OpenAI API or OpenRouter API
+    - Mem0 API (optional)
+
+# Performance Metrics
+performance:
+  avg_processing_time_ms: 4000
+  avg_products_per_search: 8
+  max_concurrent_requests: 6
+  memory_per_request_mb: 384
+  timeout_seconds: 120
+  max_products_per_query: 15
+  scalability: horizontal
+
+# Tool Restrictions
+allowed_tools:
+  - ExaTools
+  - DuckDuckGoTools
+  - Mem0Tools
+  - Search
+  - Compare
+  - Recommend
+  - Verify
+  - Analyze
+
+# Rich Documentation
+documentation:
+  overview: |
+    This skill specializes in product discovery and smart shopping recommendations, serving as a
+    personal AI shopping assistant. It combines trusted source verification with intelligent
+    matching algorithms to help users find products that best fit their requirements, budget, and
+    preferences while ensuring safety and authenticity.
+
+    The assistant excels at breaking down complex shopping requirements, providing comparative
+    analysis, and delivering actionable recommendations from verified e-commerce platforms.
+
+  use_cases:
+    when_to_use:
+      - User needs product recommendations based on specific criteria
+      - User wants to compare products before making purchase decisions
+      - User needs help finding products within budget constraints
+      - User wants verified product information from trusted sources
+      - User needs availability and stock verification
+      - User wants alternatives when preferred products are unavailable
+
+    when_not_to_use:
+      - Simple product lookup without requirements (use general search)
+      - Real-time price tracking (use price tracking agents)
+      - Order placement or payment processing (use e-commerce agents)
+      - Product manufacturing or technical specifications (use technical agents)
+      - Legal or regulatory compliance advice (use legal agents)
+
+  input_structure: |
+    Accepts shopping queries with optional specifications:
+
+    {
+      "query": "Product description or requirements",
+      "budget_min": 100,
+      "budget_max": 1000,
+      "currency": "USD",
+      "preferences": {
+        "brands": ["Brand1", "Brand2"],
+        "colors": ["Black", "Blue"],
+        "features": ["wireless", "waterproof"],
+        "exclude_features": ["used", "refurbished"]
+      },
+      "quantity": 1,
+      "urgency": "low|medium|high",
+      "delivery_required": true
+    }
+
+    Query constraints:
+    - Max query length: 300 characters
+    - Max products per query: 15
+    - Timeout: 120 seconds
+    - Supported currencies: USD, EUR, GBP, INR, etc.
+    - Language: English primary
+
+  output_format: |
+    Standard Shopping Recommendations:
+    {
+      "success": true,
+      "recommendations": [
+        {
+          "product_name": "Product Name",
+          "brand": "Brand Name",
+          "price": 299.99,
+          "currency": "USD",
+          "match_score": 0.85,
+          "availability": "in_stock",
+          "source": "amazon",
+          "link": "https://trusted-source.com/product",
+          "key_features": ["Feature 1", "Feature 2", "Feature 3"],
+          "pros": ["Advantage 1", "Advantage 2"],
+          "cons": ["Limitation 1", "Limitation 2"],
+          "rating": 4.5,
+          "review_count": 1250
+        }
+      ],
+      "summary": {
+        "total_products_found": 12,
+        "products_recommended": 5,
+        "average_match_score": 0.78,
+        "price_range": {"min": 199.99, "max": 599.99},
+        "trust_score": 0.92
+      },
+      "metadata": {
+        "query": "original_query",
+        "processing_time_ms": 4500,
+        "sources_searched": ["amazon", "google_shopping"],
+        "trust_verification": "all_sources_verified"
+      }
+    }
+
+  error_handling:
+    - "No products found: Returns alternative suggestions and search strategy"
+    - "Budget constraints too tight: Suggests budget adjustment or alternative products"
+    - "Availability issues: Provides back-in-stock estimates or alternatives"
+    - "Trust verification failed: Explains safety concerns and suggests safer alternatives"
+    - "Complex query timeout: Returns partial results with completion percentage"
+    - "Unclear requirements: Asks for clarification with example specifications"
+
+  examples:
+    - title: "Running Shoes Recommendation"
+      input:
+        query: "running shoes for long-distance"
+        preferences:
+          colors: ["Black", "Blue"]
+          features: ["cushioned", "lightweight"]
+        budget_min: 50
+        budget_max: 150
+        currency: "USD"
+      output:
+        success: true
+        recommendations: [...]
+        summary: {...}
+        metadata: {...}
+
+    - title: "Programming Laptop Search"
+      input:
+        query: "laptop for programming and development"
+        preferences:
+          brands: ["Dell", "Lenovo"]
+          features: ["16GB RAM", "512GB SSD", "dedicated GPU"]
+        budget_min: 1000
+        budget_max: 2000
+        urgency: "medium"
+      output:
+        success: true
+        recommendations: [...]
+        summary: {...}
+        metadata: {...}
+
+    - title: "Smartphone with Good Camera"
+      input:
+        query: "smartphone with excellent camera"
+        preferences:
+          features: ["5G", "good battery life", "128GB storage"]
+        budget_min: 400
+        budget_max: 800
+        currency: "USD"
+      output:
+        success: true
+        recommendations: [...]
+        summary: {...}
+        metadata: {...}
+
+  best_practices:
+    for_developers:
+      - "Always prioritize trust and safety over price or availability"
+      - "Implement minimum 50% match guarantee with transparent scoring"
+      - "Use fallback search mechanisms when primary APIs are unavailable"
+      - "Cache popular product searches to improve performance"
+      - "Implement rate limiting for search APIs to avoid throttling"
+      - "Provide clear match scoring explanations to users"
+
+    for_orchestrators:
+      - "Route shopping and product recommendation queries to this skill"
+      - "Chain with budget analysis agents for financial planning"
+      - "Consider user urgency for timeout settings"
+      - "Balance between comprehensive search and response time"
+      - "Use trust scores for quality assurance"
+      - "Implement fallback to basic search for simple product lookups"
+      - "Monitor source diversity to avoid platform bias"
+
+  installation: |
+    Required packages:
+    pip install agno bindu exa-py duckduckgo-search openai python-dotenv mem0ai
+
+    Environment variables (at least one required):
+    OPENAI_API_KEY=your_openai_api_key
+    OPENROUTER_API_KEY=your_openrouter_api_key  # Alternative to OpenAI
+
+    Recommended environment variables:
+    EXA_API_KEY=your_exa_api_key  # For enhanced product search
+    MEM0_API_KEY=your_mem0_api_key  # For personalized recommendations
+
+    Note: Without EXA_API_KEY, falls back to DuckDuckGo search
+
+  versioning:
+    - version: "1.0.0"
+      date: "2026-01-13"
+      changes: "Initial release with core shopping assistant capabilities"
+    - version: "1.1.0"
+      status: "planned"
+      changes: "Add price history tracking and deal detection"
+    - version: "1.2.0"
+      status: "planned"
+      changes: "Enhanced personalization with user preference learning"
+
+# Assessment fields for skill negotiation
+assessment:
+  keywords:
+    - shop
+    - buy
+    - purchase
+    - product
+    - shopping
+    - recommendation
+    - recommend
+    - find product
+    - compare
+    - price
+    - budget
+    - availability
+    - stock
+    - e-commerce
+    - online shopping
+    - personal shopper
+
+  specializations:
+    - domain: electronics_shopping
+      confidence_boost: 0.4
+    - domain: fashion_shopping
+      confidence_boost: 0.3
+    - domain: home_appliances
+      confidence_boost: 0.3
+    - domain: gift_shopping
+      confidence_boost: 0.2
+
+  anti_patterns:
+    - "sell product"
+    - "create listing"
+    - "manage inventory"
+    - "process payment"
+    - "order tracking"
+    - "customer service"
+    - "product manufacturing"
+    - "technical specifications"
+
+  complexity_indicators:
+    simple:
+      - "product lookup"
+      - "price check"
+      - "availability check"
+      - "basic information"
+    medium:
+      - "product comparison"
+      - "feature analysis"
+      - "budget filtering"
+      - "brand selection"
+    complex:
+      - "multiple requirement matching"
+      - "trust verification"
+      - "alternative finding"
+      - "comprehensive recommendations"
+      - "gift suggestions"
+      - "urgency-based search"
