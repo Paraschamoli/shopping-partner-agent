@@ -35,7 +35,7 @@ classifiers = [
 [project.urls]
 Homepage = "https://Paraschamoli.github.io/shopping-partner-agent/"
 Repository = "https://github.com/Paraschamoli/shopping-partner-agent"
-Documentation = "https://Paraschamoli.github.io/shopping-partner-agent/"
+Documentation = "https://github.com/Paraschamoli/shopping-partner-agent#readme"
 "Bug Tracker" = "https://github.com/Paraschamoli/shopping-partner-agent/issues"
 "Changelog" = "https://github.com/Paraschamoli/shopping-partner-agent/releases"
 
