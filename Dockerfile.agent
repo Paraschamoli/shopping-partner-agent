@@ -31,7 +31,7 @@ FROM raahulrahl/bindu-runtime-base:latest
 # OCI labels
 LABEL org.opencontainers.image.title="shopping-partner-agent"
 LABEL org.opencontainers.image.description="Shopping Partner Agent is an AI-powered personal shopping assistant that helps users discover, compare, and choose products based on preferences, budget, and needs. It analyzes reviews, features, pricing, and alternatives to provide smart recommendations—making shopping faster, more informed, and hassle-free."
-LABEL org.opencontainers.image.authors="Paras Chamoli <paras25619@gmail.com>"
+LABEL org.opencontainers.image.authors="Paras Chamoli <paras@getbindu.com>"
 LABEL org.opencontainers.image.version="1.0.0"
 LABEL org.opencontainers.image.source="https://github.com/Paraschamoli/shopping-partner-agent"
 LABEL org.opencontainers.image.licenses="MIT"
